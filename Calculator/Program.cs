@@ -26,11 +26,14 @@ namespace Calculator
 
                System.Console.WriteLine("Enter second operand");
                double input2; double.TryParse(Console.ReadLine(), out input2); //explicit parsing with exception
-               
-               if(choice.Equals("1") || choice.Equals("2") || choice.Equals("3")|| choice.Equals("4")){
-                    stay=false;
-                    continue;
-               }*/
+               */
+               if(Equals(choice, "1") || Equals(choice, "2") || Equals(choice, "3") || Equals(choice, "4")){
+                    System.Console.WriteLine("valid");
+                }
+                else{
+                     stay = false;
+                     continue;
+                }
 
                System.Console.WriteLine("Enter first operand");
                double input1;  
@@ -90,8 +93,7 @@ namespace Calculator
     static void Divide(double x, double y)
     {
       var result = x / y;
-      var remainder = x % y;
-      System.Console.WriteLine($"Your answer is: {result} remainder {remainder}");
+      System.Console.WriteLine($"Your answer is: {result}");
     }
   }
 }
