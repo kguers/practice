@@ -6,7 +6,7 @@ namespace Calculator
      {
       static void Main(string[] args)
      {
-          Console.WriteLine("Welcome to my Basic Bitch Calulator");
+          Console.WriteLine("Welcome to my Basic Calulator");
           var stay = true;
            do
           {
