@@ -2,18 +2,27 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PizzaShop.Domains.Models
+namespace PizzaShop.Domain.Models
 {
      public class Pizza
      {
          //STATE
           //Fields
-          public string ImageUrl = " ";
-          public string Size = " ";
-          public string Style= " ";
-          public List<string> Toppings = new List<string>();
+          private readonly string _imageUrl =  "https://some-url";
+          private const double _diameter = 14;
+          private static string _name = "pizza";
+          private List<string> _toppings = new List<string>();
+
           //Properties
-          public string  SizeP { get; }
+          public string  SizeP { get; set;}
+          public string Style {get; set;}
+          public List<string> Toppings 
+          {
+               get
+               {
+                    return _toppings;
+               }
+          }
           //BEHAVIOR
           //Methods
           void AddToppings(string topping)
@@ -28,7 +37,7 @@ namespace PizzaShop.Domains.Models
                {
                     sb.Append(t);
                }   
-               return $"{Size} {Style} with Toppings: {sb}";
+               return $"{SizeP} {Style} with Toppings: {sb}";
           }
           //Constructors
           public Pizza(string size, string style, List<string> toppings)
@@ -36,6 +45,11 @@ namespace PizzaShop.Domains.Models
                     SizeP = size;
                     Style = style;
                     Toppings.AddRange(toppings);
+          }
+
+          public Pizza()
+          {
+               //intentionaly empty for serializer
           }
           //Destructors
 
